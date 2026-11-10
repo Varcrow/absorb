@@ -2,6 +2,13 @@
 #include <chrono>
 #include <string>
 
+/*
+  Author: Ethan Minns
+
+  Description: Class provided for holding and modifying loaded flashcard data that uses
+  the SM2 algorithm
+*/
+
 class SM2Card {
 public:
   using Clock = std::chrono::system_clock;
