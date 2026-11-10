@@ -1,15 +1,10 @@
+#include "SM2Deck.h"
 #include <iostream>
 #include <filesystem>
-#include <fstream>
 
 int main() {
-  std::filesystem::path data = "data";
-
-  for (const auto& entry : std::filesystem::directory_iterator{data}) {
-    std::ofstream out(entry.path());
-
-    out << "TESTING";
-  }
+  std::filesystem::path data = "data/CapitalCities.txt";
+  SM2Deck test(data);
 
   return 0;
 }
