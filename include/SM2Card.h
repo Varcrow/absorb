@@ -5,7 +5,8 @@
 /*
   Author: Ethan Minns
 
-  Description: Class provided for holding and modifying loaded flashcard data that uses
+  Description:
+  Class provided for holding and modifying loaded flashcard data that uses
   the SM2 algorithm
 */
 

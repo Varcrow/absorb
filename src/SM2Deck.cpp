@@ -3,16 +3,14 @@
 #include <fstream>
 #include <iostream>
 
-SM2Deck::SM2Deck() {}
-
-SM2Deck::SM2Deck(std::filesystem::path &file) : m_file(file) { load(); }
+SM2Deck::SM2Deck(const std::filesystem::path &file) : m_file(file) { load(); }
 
 void SM2Deck::load() {
   std::ifstream in(m_file);
   if (!in.is_open())
     return;
 
-  std::getline(in, m_deckName);
+  std::getline(in, m_name);
 
   std::string question, answer;
   while (std::getline(in, question, '|')) {
@@ -30,9 +28,7 @@ void SM2Deck::load() {
     SM2Card card(question, answer, repetitions, interval, easeFactor,
                  SM2Card::TimePoint(std::chrono::seconds(dueSecs)));
 
-    if (card.isDue())
-      m_dueCards.push_back(card);
-    m_allCards.push_back(card);
+    m_cards.push_back(std::move(card));
   }
 }
 
@@ -41,8 +37,8 @@ void SM2Deck::save() {
   if (!out.is_open())
     return;
 
-  out << m_deckName << '\n';
-  for (const auto &card : m_allCards) {
+  out << m_name << '\n';
+  for (const auto &card : m_cards) {
     out << card.getQuestion() << '|' << card.getAnswer() << '|'
         << card.getRepetitions() << ',' << card.getInterval() << ','
         << card.getEaseFactor() << ','
@@ -54,7 +50,7 @@ void SM2Deck::save() {
 }
 
 void SM2Deck::debug() {
-  for (const auto& card : m_allCards) {
+  for (const auto& card : m_cards) {
     std::cout << card.getQuestion() << " | " << card.getAnswer() << std::endl;
   }
 }

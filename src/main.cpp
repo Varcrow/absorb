@@ -1,10 +1,9 @@
-#include "SM2Deck.h"
-#include <iostream>
-#include <filesystem>
+#include "SM2.h"
 
 int main() {
-  std::filesystem::path data = "data/CapitalCities.txt";
-  SM2Deck test(data);
+  SM2 absorb;
+
+  absorb.listDecks();
 
   return 0;
 }

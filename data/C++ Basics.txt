@@ -1,0 +1,8 @@
+C++ Basics
+What keyword prevents a variable from being modified?|const|4,15,2.5,1795478400
+What does RAII stand for?|Resource Acquisition Is Initialization|6,45,2.7,1796860800
+What is the size of an int on most platforms?|4 bytes|2,6,2.36,1794182400
+Which container is a hash table?|std::unordered_map|0,0,2.5,0
+What does std::move actually do?|Casts to an rvalue reference|1,1,1.96,1794268800
+What is a dangling pointer?|A pointer to freed or invalid memory|3,6,2.5,1794700800
+What header provides std::vector?|<vector>|10,120,3.1,1799539200
