@@ -1,18 +1,15 @@
 #include <iostream>
-#include "SM2Card.h"
+#include <filesystem>
+#include <fstream>
 
 int main() {
-  SM2Card test{"question", "answer"};
+  std::filesystem::path data = "data";
 
-  std::cout << test.getQuestion() << std::endl;
-  std::cout << test.getAnswer() << std::endl;
-  std::cout << test.getEaseFactor() << std::endl;
+  for (const auto& entry : std::filesystem::directory_iterator{data}) {
+    std::ofstream out(entry.path());
 
-  test.recalculate(3);
-
-  std::cout << test.getQuestion() << std::endl;
-  std::cout << test.getAnswer() << std::endl;
-  std::cout << test.getEaseFactor() << std::endl;
+    out << "TESTING";
+  }
 
   return 0;
 }
