@@ -1,9 +1,5 @@
 #pragma once
 
-#include "SM2Card.h"
-#include <filesystem>
-#include <vector>
-
 /*
  Author: Ethan Minns
 
@@ -11,6 +7,10 @@
  A class that handles loading a single file of SM2 flashcard data into memory.
  Class also handles shuffling and retrieving next card in queue when studying.
 */
+
+#include "SM2Card.h"
+#include <filesystem>
+#include <vector>
 
 class SM2Deck {
 public:

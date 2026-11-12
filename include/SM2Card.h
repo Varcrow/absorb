@@ -1,6 +1,4 @@
 #pragma once
-#include <chrono>
-#include <string>
 
 /*
   Author: Ethan Minns
@@ -9,6 +7,9 @@
   Class provided for holding and modifying loaded flashcard data that uses
   the SM2 algorithm
 */
+
+#include <chrono>
+#include <string>
 
 class SM2Card {
 public:

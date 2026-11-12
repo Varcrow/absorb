@@ -3,9 +3,10 @@
 #include "SM2Deck.h"
 #include <map>
 
-class SM2 {
+class Absorb {
 public:
-  SM2();
+  Absorb();
+  ~Absorb();
 
   void listDecks();
 
