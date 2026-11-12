@@ -10,6 +10,7 @@ cmake_install.cmake
 CTestTestfile.cmake
 Testing/
 _deps/
+__cmake_systeminformation/
 
 # Compiled artifacts
 *.o
