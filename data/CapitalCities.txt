@@ -1,4 +1,4 @@
-Capital Cities
+Capital_Cities
 What is the capital of France?|Paris|5,30,2.6,1795132800
 What is the capital of Japan?|Tokyo|3,6,2.5,1794528000
 What is the capital of Australia?|Canberra|2,1,2.36,1794096000

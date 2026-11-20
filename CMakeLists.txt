@@ -10,7 +10,7 @@ set(BUILD_TESTS ON)
 # Build Absorb
 add_executable(
   ${CMAKE_PROJECT_NAME}
-  "src/Main.cpp"
+  "src/main.cpp"
   "src/SM2Card.cpp"
   "src/SM2Deck.cpp"
   "src/Absorb.cpp"

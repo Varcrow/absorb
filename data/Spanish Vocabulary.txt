@@ -1,4 +1,4 @@
-Spanish Vocabulary
+Spanish_Vocabulary
 hello|hola|0,0,2.5,0
 goodbye|adiós|0,0,2.5,0
 thank you|gracias|1,1,2.5,1793836800

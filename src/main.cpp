@@ -1,6 +1,6 @@
 #include "Absorb.h"
+#include "SM2Deck.h"
 #include <print>
-
 
 int main(int argc, char **argv) {
   // Different Commands
@@ -28,17 +28,33 @@ int main(int argc, char **argv) {
   // Study: absorb study {deck}
   // Begin the study loop
 
+  if (argc < 2) {
+    std::println("Help message here");
+    return 1;
+  }
+
   Absorb a;
   std::string cmd{std::string(argv[1])};
 
-  if (argc < 2) {
-    std::println("Help message here");
-  } else if (cmd == "add") {
+  if (cmd == "add") {
     std::println("Looking to add card.");
   } else if (cmd == "remove") {
     std::println("Looking to remove card.");
   } else if (cmd == "view") {
-    std::println("Looking to view cards.");
+    if (argc < 3) {
+      a.listDecks();
+      return 0;
+    }
+
+    SM2Deck* deck{a.getDeck(argv[2])};
+
+    if (!deck) {
+      std::println("Deck {} does not exist.", argv[2]);
+      return 1;
+    }
+
+    deck->listCards();
+
   } else if (cmd == "due") {
     std::println("Looking to see what's due.");
   } else if (cmd == "study") {

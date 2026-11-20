@@ -18,7 +18,7 @@ public:
 
   void load();
   void save();
-  void debug();
+  void listCards();
 
   std::string getName() const { return m_name; }
 

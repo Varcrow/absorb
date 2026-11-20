@@ -47,9 +47,11 @@ void SM2Deck::save() {
                .count()
         << '\n';
   }
+
+  out.close();
 }
 
-void SM2Deck::debug() {
+void SM2Deck::listCards() {
   for (const auto& card : m_cards) {
     std::cout << card.getQuestion() << " | " << card.getAnswer() << std::endl;
   }

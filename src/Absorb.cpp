@@ -23,3 +23,8 @@ void Absorb::listDecks() {
     std::cout << deck.second.getName() << std::endl;
   }
 }
+
+SM2Deck* Absorb::getDeck(std::string name) {
+  auto it = m_decks.find(name);
+  return it != m_decks.end() ? &it->second : nullptr;
+}
