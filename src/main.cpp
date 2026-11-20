@@ -1,5 +1,4 @@
 #include "Absorb.h"
-#include "SM2Deck.h"
 #include <print>
 
 void addCard(int &argc, char **&argv, Absorb &absorb);
@@ -60,15 +59,7 @@ void view(int &argc, char **&argv, Absorb &absorb) {
     absorb.listDecks();
     return;
   }
-
-  SM2Deck *deck{absorb.getDeck(argv[2])};
-
-  if (!deck) {
-    std::println("Deck {} does not exist.", argv[2]);
-    return;
-  }
-
-  deck->listCards();
+  absorb.printDeck(argv[2]);
 }
 
 void study(int &argc, char **&argv, Absorb &absorb) {}

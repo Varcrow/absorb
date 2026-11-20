@@ -8,9 +8,8 @@ public:
   Absorb();
   ~Absorb();
 
-  SM2Deck *getDeck(std::string /*name*/);
-
   void listDecks();
+  void printDeck(std::string /*name*/);
 
 private:
   std::map<std::string, SM2Deck> m_decks;

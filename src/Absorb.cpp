@@ -17,13 +17,15 @@ Absorb::~Absorb() {
   }
 }
 
-SM2Deck *Absorb::getDeck(std::string name) {
-  auto it = m_decks.find(name);
-  return it != m_decks.end() ? &it->second : nullptr;
-}
-
 void Absorb::listDecks() {
   for (auto &deck : m_decks) {
     deck.second.print();
+  }
+}
+
+void Absorb::printDeck(std::string name) {
+  auto it = m_decks.find(name);
+  if(it != m_decks.end()) {
+    it->second.listCards();
   }
 }
