@@ -2,6 +2,12 @@
 #include "SM2Deck.h"
 #include <print>
 
+void addCard(int &argc, char **&argv, Absorb &absorb);
+void removeCard(int &argc, char **&argv, Absorb &absorb);
+void view(int &argc, char **&argv, Absorb &absorb);
+void due(Absorb &absorb);
+void study(int &argc, char **&argv, Absorb &absorb);
+
 int main(int argc, char **argv) {
   // Different Commands
   //
@@ -33,33 +39,44 @@ int main(int argc, char **argv) {
     return 1;
   }
 
-  Absorb a;
+  Absorb absorb;
   std::string cmd{std::string(argv[1])};
 
   if (cmd == "add") {
-    std::println("Looking to add card.");
+    addCard(argc, argv, absorb);
   } else if (cmd == "remove") {
-    std::println("Looking to remove card.");
+    removeCard(argc, argv, absorb);
   } else if (cmd == "view") {
-    if (argc < 3) {
-      a.listDecks();
-      return 0;
-    }
-
-    SM2Deck* deck{a.getDeck(argv[2])};
-
-    if (!deck) {
-      std::println("Deck {} does not exist.", argv[2]);
-      return 1;
-    }
-
-    deck->listCards();
-
+    view(argc, argv, absorb);
   } else if (cmd == "due") {
-    a.listDueCounts();
+    due(absorb);
   } else if (cmd == "study") {
-    std::println("Looking to study.");
+    study(argc, argv, absorb);
   }
 
   return 0;
 }
+
+void addCard(int &argc, char **&argv, Absorb &absorb) {}
+
+void removeCard(int &argc, char **&argv, Absorb &absorb) {}
+
+void view(int &argc, char **&argv, Absorb &absorb) {
+  if (argc < 3) {
+    absorb.listDecks();
+    return;
+  }
+
+  SM2Deck *deck{absorb.getDeck(argv[2])};
+
+  if (!deck) {
+    std::println("Deck {} does not exist.", argv[2]);
+    return;
+  }
+
+  deck->listCards();
+}
+
+void due(Absorb &absorb) { absorb.listDueCounts(); }
+
+void study(int &argc, char **&argv, Absorb &absorb) {}
