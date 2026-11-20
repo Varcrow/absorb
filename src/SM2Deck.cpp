@@ -51,12 +51,6 @@ void SM2Deck::save() {
   out.close();
 }
 
-void SM2Deck::listCards() {
-  for (const auto& card : m_cards) {
-    std::cout << card.getQuestion() << " | " << card.getAnswer() << std::endl;
-  }
-}
-
 int SM2Deck::getDue() {
   int count{0};
 
@@ -65,4 +59,14 @@ int SM2Deck::getDue() {
   }
 
   return count;
+}
+
+void SM2Deck::listCards() {
+  for (auto& card : m_cards) {
+    card.print();
+  }
+}
+
+void SM2Deck::print() {
+  std::cout << m_name << " " << m_cards.size() << " " << getDue() << std::endl;
 }

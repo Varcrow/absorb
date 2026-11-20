@@ -1,6 +1,5 @@
 #include "Absorb.h"
 #include "SM2Deck.h"
-#include <iostream>
 
 Absorb::Absorb() {
   for (const auto &entry : std::filesystem::directory_iterator{"data"}) {
@@ -18,19 +17,13 @@ Absorb::~Absorb() {
   }
 }
 
-void Absorb::listDecks() {
-  for (auto &deck : m_decks) {
-    std::cout << deck.first << std::endl;
-  }
-}
-
-void Absorb::listDueCounts() {
-  for (auto &deck : m_decks) {
-    std::cout << deck.first << " | " << deck.second.getDue() << std::endl;
-  }
-}
-
 SM2Deck *Absorb::getDeck(std::string name) {
   auto it = m_decks.find(name);
   return it != m_decks.end() ? &it->second : nullptr;
+}
+
+void Absorb::listDecks() {
+  for (auto &deck : m_decks) {
+    deck.second.print();
+  }
 }

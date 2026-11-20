@@ -30,6 +30,8 @@ public:
   float getEaseFactor() const { return m_easeFactor; }
   TimePoint getDueDate() const { return m_dueDate; }
 
+  void print();
+
 private:
   std::string m_question;
   std::string m_answer;

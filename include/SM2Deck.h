@@ -18,10 +18,12 @@ public:
 
   void load();
   void save();
-  void listCards();
-  int getDue();
 
+  int getDue();
   std::string getName() const { return m_name; }
+
+  void listCards();
+  void print();
 
 private:
   std::string m_name;

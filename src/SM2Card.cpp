@@ -1,5 +1,6 @@
 #include "SM2Card.h"
 #include <cmath>
+#include <iostream>
 
 SM2Card::SM2Card(std::string question, std::string answer)
     : m_question(question), m_answer(answer), m_repetitions(0), m_interval(0),
@@ -28,4 +29,8 @@ void SM2Card::recalculate(int quality) {
   m_easeFactor += 0.1f - (5 - quality) * (0.08f + (5 - quality) * 0.02f);
   m_easeFactor = std::max(1.3f, m_easeFactor);
   m_dueDate = Clock::now() + std::chrono::hours(24 * m_interval);
+}
+
+void SM2Card::print() {
+  std::cout << m_question << " | " << m_answer << std::endl;
 }

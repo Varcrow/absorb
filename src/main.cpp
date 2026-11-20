@@ -5,7 +5,6 @@
 void addCard(int &argc, char **&argv, Absorb &absorb);
 void removeCard(int &argc, char **&argv, Absorb &absorb);
 void view(int &argc, char **&argv, Absorb &absorb);
-void due(Absorb &absorb);
 void study(int &argc, char **&argv, Absorb &absorb);
 
 int main(int argc, char **argv) {
@@ -28,9 +27,6 @@ int main(int argc, char **argv) {
   // Displays all cards in their deck in a fashion like "{id}. {question} |
   // {answer}"
   //
-  // Due cards: absorb due
-  // Display deck names and number of cards due. "{deckname} : {num due}"
-  //
   // Study: absorb study {deck}
   // Begin the study loop
 
@@ -48,8 +44,6 @@ int main(int argc, char **argv) {
     removeCard(argc, argv, absorb);
   } else if (cmd == "view") {
     view(argc, argv, absorb);
-  } else if (cmd == "due") {
-    due(absorb);
   } else if (cmd == "study") {
     study(argc, argv, absorb);
   }
@@ -76,7 +70,5 @@ void view(int &argc, char **&argv, Absorb &absorb) {
 
   deck->listCards();
 }
-
-void due(Absorb &absorb) { absorb.listDueCounts(); }
 
 void study(int &argc, char **&argv, Absorb &absorb) {}
