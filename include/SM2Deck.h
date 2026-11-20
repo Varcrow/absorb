@@ -19,6 +19,7 @@ public:
   void load();
   void save();
   void listCards();
+  int getDue();
 
   std::string getName() const { return m_name; }
 

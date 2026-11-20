@@ -56,3 +56,13 @@ void SM2Deck::listCards() {
     std::cout << card.getQuestion() << " | " << card.getAnswer() << std::endl;
   }
 }
+
+int SM2Deck::getDue() {
+  int count{0};
+
+  for (auto& card : m_cards) {
+    card.isDue() ? count++ : count;
+  }
+
+  return count;
+}

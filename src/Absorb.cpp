@@ -3,7 +3,7 @@
 #include <iostream>
 
 Absorb::Absorb() {
-  for (const auto& entry : std::filesystem::directory_iterator{"data"}) {
+  for (const auto &entry : std::filesystem::directory_iterator{"data"}) {
     if (!entry.is_regular_file())
       continue;
 
@@ -13,18 +13,24 @@ Absorb::Absorb() {
 }
 
 Absorb::~Absorb() {
-  for (auto& deck : m_decks) {
+  for (auto &deck : m_decks) {
     deck.second.save();
   }
 }
 
 void Absorb::listDecks() {
-  for (auto& deck : m_decks) {
-    std::cout << deck.second.getName() << std::endl;
+  for (auto &deck : m_decks) {
+    std::cout << deck.first << std::endl;
   }
 }
 
-SM2Deck* Absorb::getDeck(std::string name) {
+void Absorb::listDueCounts() {
+  for (auto &deck : m_decks) {
+    std::cout << deck.first << " | " << deck.second.getDue() << std::endl;
+  }
+}
+
+SM2Deck *Absorb::getDeck(std::string name) {
   auto it = m_decks.find(name);
   return it != m_decks.end() ? &it->second : nullptr;
 }

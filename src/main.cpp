@@ -56,7 +56,7 @@ int main(int argc, char **argv) {
     deck->listCards();
 
   } else if (cmd == "due") {
-    std::println("Looking to see what's due.");
+    a.listDueCounts();
   } else if (cmd == "study") {
     std::println("Looking to study.");
   }
